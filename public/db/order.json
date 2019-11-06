@@ -1,0 +1,17 @@
+{
+  "err": 0,
+  "msg": "success",
+  "data": [
+    {
+      "id": 0,
+      "src": '',
+      "price": "12.3",
+      "visit": 20,
+      "status": 2,
+      "num": "fq19120001",
+      "group": 1
+    },
+    {},
+    {},
+  ]
+}
