@@ -1,24 +1,12 @@
-# vue-youzan-cms
+## 分支操作
 
-## Project setup
-```
-npm install
-```
+#### 1、连接远程仓库
 
-### Compiles and hot-reloads for development
 ```
-npm run serve
+git init
+git remote add origin https://github.com/geekxia/node-express-mongoose.git
+git pull origin master --allow-unrelated-histories
+git add --all
+git commit -m '提交'
+git push origin master
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
