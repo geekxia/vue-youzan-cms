@@ -13,5 +13,6 @@ export default {
 .main {
   background: white;
   min-width: 1000px;
+  overflow: auto;
 }
 </style>

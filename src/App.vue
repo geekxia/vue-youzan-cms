@@ -1,12 +1,14 @@
 <template>
-  <div id="app">
+  <div class="app">
+
     <!-- 用户未登录 -->
     <div v-if='$route.path === "/login"'>
       <router-view name='login'></router-view>
     </div>
+
     <!-- 用户已登录 -->
-    <div v-else>
-      <el-container>
+    <div v-else class="wrap">
+      <el-container style="height:100%;">
         <el-aside width='135px'><Aside></Aside></el-aside>
         <el-container>
           <el-header><Header></Header></el-header>
@@ -14,6 +16,7 @@
         </el-container>
       </el-container>
     </div>
+
   </div>
 </template>
 
@@ -28,8 +31,8 @@ export default {
       isLogin: true
     }
   },
-  mounted() {
-    console.log(this.$route)
+  updated() {
+    console.log('App $route',this.$route)
   },
   components: {
     Aside,
@@ -39,17 +42,22 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 html, body {
   padding: 0;
   margin: 0;
   background: rgba(247, 248, 250, 1);
+  height: 100%;
+  width: 100%;
 }
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* text-align: center; */
+.app {
   color: #2c3e50;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  &>div {
+    height: 100%;
+    width: 100%;
+  }
 }
 </style>

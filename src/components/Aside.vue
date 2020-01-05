@@ -27,6 +27,7 @@ export default {
   mounted() {
     // 获取导航数据
     this.getNavList()
+    console.log(this.$router.routes)
   },
   methods: {
     ...mapActions(['getNavList'])
