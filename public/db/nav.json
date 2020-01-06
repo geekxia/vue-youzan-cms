@@ -3,9 +3,9 @@
   "msg": "success",
   "data": [
     {
-      "title": "店铺概况",
+      "title": "店铺管理",
       "class": "fa-shopping-bag",
-      "path": "/home"
+      "path": "/shop"
     },
     {
       "title": "商品管理",

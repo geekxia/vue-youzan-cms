@@ -3,8 +3,9 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-import Home from '@/views/home/Home.vue'
-import Good from '@/views/good/Good.vue'
+const Shop = ()=>import('@/views/shop/Shop.vue')
+const Good = ()=>import('@/views/good/Good.vue')
+
 import Order from '@/views/order/Order.vue'
 import Customer from '@/views/customer/Customer.vue'
 import Login from '@/views/login/Login.vue'
@@ -14,11 +15,11 @@ const router = new VueRouter({
   routes: [
     {
       path: '/',
-      redirect: '/home'
+      redirect: '/shop'
     },
     {
-      path: '/home',
-      component: Home
+      path: '/shop',
+      component: Shop
     },
     {
       path: '/good',

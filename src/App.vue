@@ -8,11 +8,17 @@
 
     <!-- 用户已登录 -->
     <div v-else class="wrap">
-      <el-container style="height:100%;">
-        <el-aside width='135px'><Aside></Aside></el-aside>
+      <el-container class="container_wrap">
+        <el-aside width='135px'>
+          <Aside></Aside>
+        </el-aside>
         <el-container>
-          <el-header><Header></Header></el-header>
-          <el-main><Main></Main></el-main>
+          <el-header class="header_wrap">
+            <Header></Header>
+          </el-header>
+          <el-main>
+            <Main class="main_wrap"></Main>
+          </el-main>
         </el-container>
       </el-container>
     </div>
@@ -58,6 +64,17 @@ html, body {
   &>div {
     height: 100%;
     width: 100%;
+  }
+  .container_wrap {
+    height: 100%;
+  }
+  .header_wrap {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .main_wrap {
+    padding-bottom: 0;
+    padding-right: 0;
   }
 }
 </style>

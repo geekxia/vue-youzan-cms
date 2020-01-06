@@ -13,6 +13,9 @@ export default {
 .main {
   background: white;
   min-width: 1000px;
+  box-sizing: border-box;
+  padding: 0 15px;
+  height: 100%;
   overflow: auto;
 }
 </style>
