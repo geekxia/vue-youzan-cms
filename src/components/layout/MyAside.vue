@@ -1,37 +1,32 @@
 <template lang="html">
-<div class="aside" >
-  <div class="logo">
-    <i class="fa fa-thumbs-up"></i>
+  <div class="aside">
+    <div class="logo">
+      <i class="fa fa-thumbs-up"></i>
+    </div>
+
+    <div v-for="(item, idx) in navs" :key='idx'>
+      <router-link :to="item.path" active-class='nav_on' tag="span">
+        <div class="nav">
+          <i class="fa" :class='item.icon'></i>
+          <span v-text="item.text"></span>
+        </div>
+      </router-link>
+    </div>
+
   </div>
-
-  <div v-for="(item, idx) in navList" :key='idx'>
-
-    <router-link :to="item.path" active-class='nav_on' tag="span">
-      <div class="nav">
-        <i class="fa" :class='item.class'></i>
-        <span v-text="item.title"></span>
-      </div>
-    </router-link>
-
-
-  </div>
-</div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
 export default {
-  computed: {
-    ...mapState(['navList'])
+  data: function() {
+    return {
+      navs: [
+        {path: '/shop', text:'店铺管理', icon:'fa-camera-retro'},
+        {path: '/good', text:'商品管理', icon:'fa-home'},
+        {path: '/order', text:'订单管理', icon:'fa-book'}
+      ]
+    }
   },
-  mounted() {
-    // 获取导航数据
-    this.getNavList()
-    console.log(this.$router.routes)
-  },
-  methods: {
-    ...mapActions(['getNavList'])
-  }
 }
 </script>
 

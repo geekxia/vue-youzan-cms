@@ -1,5 +1,7 @@
 <template lang="html">
-  <h1>客户查询</h1>
+<div>
+  <h1>发布</h1>
+</div>
 </template>
 
 <script>
@@ -7,5 +9,5 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 </style>

@@ -1,49 +1,41 @@
 <template>
   <div class="app">
 
-    <!-- 用户未登录 -->
-    <div v-if='$route.path === "/login"'>
-      <router-view name='login'></router-view>
-    </div>
+    <el-container class="app-container">
+      <!-- 左侧导航菜单 -->
+      <el-aside width="135px">
+        <MyAside></MyAside>
+      </el-aside>
 
-    <!-- 用户已登录 -->
-    <div v-else class="wrap">
-      <el-container class="container_wrap">
-        <el-aside width='135px'>
-          <Aside></Aside>
-        </el-aside>
-        <el-container>
-          <el-header class="header_wrap">
-            <Header></Header>
-          </el-header>
-          <el-main>
-            <Main class="main_wrap"></Main>
-          </el-main>
-        </el-container>
+      <el-container>
+        <!-- 顶部banner -->
+        <el-header height='55px' class="app-header">
+          <MyHeader></MyHeader>
+        </el-header>
+
+        <!-- 内容的主体区域 -->
+        <el-main class="app-main">
+          <MyMain></MyMain>
+        </el-main>
       </el-container>
-    </div>
+    </el-container>
 
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
-import Aside from '@/components/Aside.vue'
-import Main from '@/components/Main.vue'
+
+import MyAside from '@/components/layout/MyAside.vue'
+import MyHeader from '@/components/layout/MyHeader.vue'
+import MyMain from '@/components/layout/MyMain.vue'
+
 export default {
   name: 'app',
-  data: function() {
-    return {
-      isLogin: true
-    }
-  },
-  updated() {
-    console.log('App $route',this.$route)
-  },
+
   components: {
-    Aside,
-    Header,
-    Main
+    MyAside,
+    MyHeader,
+    MyMain
   }
 }
 </script>
@@ -52,29 +44,26 @@ export default {
 html, body {
   padding: 0;
   margin: 0;
-  background: rgba(247, 248, 250, 1);
-  height: 100%;
   width: 100%;
+  height: 100%;
+  background: rgba(247, 248, 250, 1);
 }
 .app {
-  color: #2c3e50;
   height: 100%;
-  width: 100%;
-  overflow: auto;
-  &>div {
-    height: 100%;
-    width: 100%;
-  }
-  .container_wrap {
+  .app-container {
     height: 100%;
   }
-  .header_wrap {
+  .app-header {
     padding-left: 0;
     padding-right: 0;
   }
-  .main_wrap {
+  .app-main {
     padding-bottom: 0;
     padding-right: 0;
   }
 }
+
+
+
+
 </style>

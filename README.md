@@ -1,12 +1,24 @@
-## 分支操作
+# vue-cms
 
-#### 1、连接远程可是可是仓库
+## Project setup
+```
+npm install
+```
 
+### Compiles and hot-reloads for development
 ```
-git init
-git remote add origin https://github.com/geekxia/node-express-mongoose.git
-git pull origin master --allow-unrelated-histories
-git add --all
-git commit -m '提交'
-git push origin master
+npm run serve
 ```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).

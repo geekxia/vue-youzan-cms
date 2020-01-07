@@ -1,5 +1,6 @@
 <template lang="html">
 <div class="tab_filter">
+  <span :class="{'on': value==='-1'}" @click="$emit('input', '-1')">全部</span>  
   <span :class="{'on': value==='1'}" @click="$emit('input', '1')">销售中</span>
   <span :class="{'on': value==='2'}" @click="$emit('input', '2')">已售罄</span>
   <span :class="{'on': value==='3'}" @click="$emit('input', '3')">仓库中</span>

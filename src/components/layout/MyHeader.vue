@@ -1,33 +1,29 @@
 <template lang="html">
-<div class="header">
-  <div class="header-left">
-    <span>GeekXia</span>
-    <span class="blue">试用期</span>
-    <span>SVIP</span>
-    <span>有赞担保</span>
+  <div class="header">
+    <!-- 当渲染首页显示 -->
+    <div v-if="$route.path === '/'">
+      <div class="header-left">
+        <span>GeekXia</span>
+        <span class="blue">试用期</span>
+        <span>SVIP</span>
+        <span>有赞担保</span>
+      </div>
+      <div class="header-right">
+        <span>GeekXia</span>
+        <i class="fa fa-user-circle"></i>
+        <!-- <i class="fa fa-angle-right"></i> -->
+      </div>
+    </div>
+    <div v-else>
+      面包屑导航
+    </div>
   </div>
-  <div class="header-right">
-    <span>GeekXia</span>
-    <i class="fa fa-user-circle" @click='logout'></i>
-    <!-- <i class="fa fa-angle-right"></i> -->
-  </div>
-</div>
 </template>
 
 <script>
 export default {
-  methods: {
-    logout() {
-      this.$alert('你确定要退出登录吗？', {
-        confirmButtonText: '确定',
-        callback: action => {
-          if (action === 'confirm') {
-            localStorage.removeItem('login')
-            this.$router.replace('/login')
-          }
-        }
-      });
-    }
+  mounted() {
+    console.log('route----', this.$route)
   }
 }
 </script>

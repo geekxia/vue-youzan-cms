@@ -1,7 +1,7 @@
 <template lang="html">
 <div class="good_table">
   <el-table
-    :data="tableData"
+    :data="list"
     style="width: 100%"
     :default-sort = "{prop: 'date', order: 'descending'}"
     @selection-change="handleSelectionChange"
@@ -11,33 +11,74 @@
       width="55">
     </el-table-column>
     <el-table-column
-      prop="date"
-      label="日期"
+      label="商品名"
       sortable
+      header-align='center'
       width="180">
+      <template slot-scope="scope">
+        <div class="good_item">
+          <img :src="scope.row.src" alt="商品">
+          <div v-text='scope.row.name'></div>
+        </div>
+      </template>
     </el-table-column>
     <el-table-column
-      prop="visit"
+      prop="price"
+      label="价格"
+      sortable
+      width="100">
+    </el-table-column>
+    <el-table-column
+      prop="visit_num"
       label="访问量"
-      width="180">
-    </el-table-column>
-    <el-table-column
-      prop="name"
-      label="姓名"
       sortable
-      width="180">
+      width="100">
     </el-table-column>
     <el-table-column
-      prop="address"
-      label="地址"
-      :formatter="formatter">
+      prop="inventory_num"
+      label="库存"
+      sortable
+      width='100'
+      >
+      <!--  -->
+    </el-table-column>
+    <el-table-column
+      prop="sale_num"
+      label="销量"
+      sortable
+      width="100">
+    </el-table-column>
+    <el-table-column
+      prop="order"
+      label="序号"
+      sortable
+      width="100">
+    </el-table-column>
+    <el-table-column
+      prop="create_time"
+      label="创建时间"
+      sortable
+      :formatter="timeHandle"
+      width="100">
+    </el-table-column>
+    <el-table-column
+      prop="status_no"
+      label="商品状态"
+      width="100">
     </el-table-column>
   </el-table>
 </div>
 </template>
 
 <script>
+import moment from 'moment'
 export default {
+  props: {
+    list: {
+      type: Array,
+      required: true
+    }
+  },
   data() {
       return {
         multipleSelection: [],
@@ -71,10 +112,22 @@ export default {
       handleSelectionChange(val) {
         this.multipleSelection = val
         console.log(this.multipleSelection)
+      },
+      timeHandle(row) {
+        return moment(row.create_time).format('HH:mm:ss')
       }
     }
 }
 </script>
 
 <style lang="scss" scoped>
+.good_item {
+  text-align: center;
+  &>img {
+    display: inline-block;
+    width: 30px;
+    height: 40px;
+    cursor: pointer;
+  }
+}
 </style>

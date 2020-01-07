@@ -1,5 +1,7 @@
 <template lang="html">
-<h1>订单查询</h1>  
+<div>
+  首页
+</div>
 </template>
 
 <script>
