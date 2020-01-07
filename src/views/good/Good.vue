@@ -28,7 +28,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import { fetchGoodList } from '@/utils/api'
+// import { fetchGoodList } from '@/utils/api'
 const TabFilter = ()=>import('./components/TabFilter.vue')
 const FormFilter = ()=>import('./components/FormFilter.vue')
 const GoodTable = ()=>import('./components/GoodTable.vue')
@@ -73,7 +73,7 @@ export default {
         size: this.currentSize,  // 每页的数量
         name: this.formParams.name
       }
-      fetchGoodList(params).then(res=>{
+      this.$http.fetchGoodList(params).then(res=>{
         console.log('res', res)
         this.list = res.list
         this.total = res.total
@@ -81,7 +81,7 @@ export default {
     },
     // 发布商品 按钮点击
     skip() {
-      this.$router.push('/publish')
+      this.$router.push('/good/publish')
     },
     sizeHandle(val) {
       console.log(`每页 ${val} 条`);

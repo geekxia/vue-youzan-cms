@@ -1,7 +1,10 @@
 <template>
   <div class="app">
 
-    <el-container class="app-container">
+    <!-- 登录页实现 -->
+    <router-view v-if='$route.path === "/login"' name='login'></router-view>
+
+    <el-container v-else class="app-container">
       <!-- 左侧导航菜单 -->
       <el-aside width="135px">
         <MyAside></MyAside>
@@ -47,6 +50,7 @@ html, body {
   width: 100%;
   height: 100%;
   background: rgba(247, 248, 250, 1);
+  overflow: hidden;
 }
 .app {
   height: 100%;
@@ -62,8 +66,5 @@ html, body {
     padding-right: 0;
   }
 }
-
-
-
 
 </style>

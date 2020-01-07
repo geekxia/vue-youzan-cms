@@ -3,7 +3,7 @@ import { Message } from 'element-ui'
 
 // 测试:http://localhost:9090
 // 上线:http://baidu.com
-var baseURL = 'http://localhost:9999'
+var baseURL = 'http://localhost:9090'
 
 // 这是axios实例
 const fetch = axios.create({

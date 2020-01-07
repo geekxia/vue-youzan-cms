@@ -1,3 +1,4 @@
+
 const goodStore = {
   namespaced: true,
   state: {

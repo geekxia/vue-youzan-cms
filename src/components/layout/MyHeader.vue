@@ -15,15 +15,32 @@
       </div>
     </div>
     <div v-else>
-      面包屑导航
+      <!-- 面包屑导航 -->
+      <el-breadcrumb separator="/" >
+        <el-breadcrumb-item v-for="(item,idx) in navs" :key='idx' :to="{ path: item }">首页</el-breadcrumb-item>
+      </el-breadcrumb>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  mounted() {
-    console.log('route----', this.$route)
+  data: function() {
+    return {
+      navs: []
+    }
+  },
+  watch: {
+    $route(val) {
+      console.log('header route', val)
+      var arr = val.fullPath.split('/').filter(ele=>ele)
+      var res = []
+      arr.map((ele,idx)=>{
+        res.push('/'+arr.slice(0,idx+1).join('/'))
+      })
+      console.log(res)
+      this.navs = res
+    }
   }
 }
 </script>
