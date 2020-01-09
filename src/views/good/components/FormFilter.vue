@@ -3,24 +3,23 @@
 
   <!-- 第一行 -->
   <el-row type='flex' align='middle' class="row">
-    <!-- 第一列 -->
     <el-col :span="3">
-      <span>商品名称或编码:</span>
+      <span>商品名称:</span>
     </el-col>
     <el-col :span="4">
       <el-input size='small' v-model='value.name' placeholder="请输入内容"></el-input>
     </el-col>
-    <!-- 第二列 -->
     <el-col :span="3">
       <span>商品分组:</span>
     </el-col>
     <el-col :span="4">
-      <el-select placeholder="请选择" size='small' v-model='selVal'>
+      <el-select placeholder="请选择" size='small' v-model='value.group_no'>
         <el-option
-          v-for="item in options"
-          :key="item.value"
+          v-for="(item,idx) in goodGroupList"
+          :key="idx"
           :label="item.label"
-          :value="item.value">
+          :value="item.id"
+        >
         </el-option>
       </el-select>
     </el-col>
@@ -28,32 +27,30 @@
 
   <!-- 第二行 -->
   <el-row type='flex' align='middle' class="row">
-    <!-- 第三列 -->
     <el-col :span="3">
       <span>商品类型:</span>
     </el-col>
     <el-col :span="4">
-      <el-select placeholder="请选择" size='small' v-model='selVal'>
+      <el-select placeholder="请选择" size='small' v-model='value.type_no'>
         <el-option
-          v-for="item in options"
-          :key="item.value"
+          v-for="item in goodTypeList"
+          :key="item.id"
           :label="item.label"
-          :value="item.value">
+          :value="item.id">
         </el-option>
       </el-select>
     </el-col>
-    <!-- 第四列 -->
     <el-col :span="3">
       <span>总销量:</span>
     </el-col>
     <el-col :span="4">
       <div class="two_nums">
         <div>
-          <el-input size='small'></el-input>
+          <el-input size='small' v-model.number='value.sale_min'></el-input>
         </div>
         <div>-</div>
         <div>
-          <el-input size='small'></el-input>
+          <el-input size='small' v-model.number='value.sale_max'></el-input>
         </div>
       </div>
     </el-col>
@@ -67,11 +64,11 @@
     <el-col :span="4">
       <div class="two_nums">
         <div>
-          <el-input size='small'></el-input>
+          <el-input size='small' v-model.number='value.price_min'></el-input>
         </div>
         <div>-</div>
         <div>
-          <el-input size='small'></el-input>
+          <el-input size='small' v-model.number='value.price_max'></el-input>
         </div>
       </div>
     </el-col>
@@ -79,10 +76,10 @@
       <span>库存扣减方式:</span>
     </el-col>
     <el-col :span="4">
-      <el-select placeholder="请选择" size='small' v-model='selVal'>
-        <el-option key='1' label='全部' value='1'></el-option>
-        <el-option key='2' label='拍下扣减库存' value='2'></el-option>
-        <el-option key='3' label='付款扣减库存' value='3'></el-option>
+      <el-select placeholder="请选择" size='small' v-model='value.deduction_no'>
+        <el-option key='1' label='全部' value='0'></el-option>
+        <el-option key='2' label='拍下扣减库存' value='1'></el-option>
+        <el-option key='3' label='付款扣减库存' value='2'></el-option>
       </el-select>
     </el-col>
   </el-row>
@@ -96,10 +93,10 @@
   </el-row>
 
 </div>
-
 </template>
 
 <script>
+import { goodGroupList, goodTypeList } from '@/utils/map'
 export default {
   props: {
     value: {
@@ -110,6 +107,8 @@ export default {
   data() {
       return {
         selVal: '',
+        goodGroupList,
+        goodTypeList,
         options: [{
           value: '选项1',
           label: '黄金糕'

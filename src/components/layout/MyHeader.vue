@@ -3,43 +3,52 @@
     <!-- 当渲染首页显示 -->
     <div v-if="$route.path === '/'">
       <div class="header-left">
-        <span>GeekXia</span>
+        <span v-text='userinfo.username'></span>
         <span class="blue">试用期</span>
         <span>SVIP</span>
         <span>有赞担保</span>
       </div>
       <div class="header-right">
         <span>GeekXia</span>
-        <i class="fa fa-user-circle"></i>
+        <i class="fa fa-user-circle" @click='logout'></i>
         <!-- <i class="fa fa-angle-right"></i> -->
       </div>
     </div>
     <div v-else>
-      <!-- 面包屑导航 -->
-      <el-breadcrumb separator="/" >
-        <el-breadcrumb-item v-for="(item,idx) in navs" :key='idx' :to="{ path: item }">首页</el-breadcrumb-item>
-      </el-breadcrumb>
+      面包屑导航
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-  data: function() {
-    return {
-      navs: []
-    }
+  computed: {
+    ...mapState('user', ['userinfo'])
   },
-  watch: {
-    $route(val) {
-      console.log('header route', val)
-      var arr = val.fullPath.split('/').filter(ele=>ele)
-      var res = []
-      arr.map((ele,idx)=>{
-        res.push('/'+arr.slice(0,idx+1).join('/'))
-      })
-      console.log(res)
-      this.navs = res
+  mounted() {
+    // console.log('route----', this.$route)
+  },
+  methods: {
+    logout() {
+      this.$confirm('你确定要退出吗？', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        localStorage.removeItem('isLogin')
+        localStorage.removeItem('token')
+        this.$router.replace('/login')
+        this.$message({
+          type: 'success',
+          message: '退出成功!'
+        });
+      }).catch(() => {
+        // this.$message({
+        //   type: 'info',
+        //   message: '已取消删除'
+        // });
+      });
     }
   }
 }

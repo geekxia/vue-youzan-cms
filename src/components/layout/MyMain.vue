@@ -16,15 +16,10 @@ export default {
   height: 100%;
   padding: 0 15px;
   min-width: 1000px;
-  overflow: auto;
   .logo {
     line-height: 80px;
     text-align: center;
     font-size: 30px;
-    background-color: rgba(247, 248, 250, 1);
-    margin-left: -15px;
-    margin-right: -15px;
-    color: #aaa;
   }
 }
 </style>

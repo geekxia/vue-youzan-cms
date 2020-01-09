@@ -17,8 +17,8 @@ const fetch = axios.create({
 // 添加请求拦截器，发生在请求发起之前
 fetch.interceptors.request.use(config => {
   // console.log('请求拦截，ajax发起请求之前', config)
-  // var token = localStorage.getItem('token')
-  // config.headers.Authorization = token   // 用户鉴权
+  var token = localStorage.getItem('token')
+  config.headers.Authorization = token   // 用户鉴权
   return config
 })
 

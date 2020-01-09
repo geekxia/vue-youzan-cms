@@ -1,15 +1,18 @@
 import Vue from 'vue'
 import App from './App.vue'
 
+
+// 全局安装element
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
+// 路由挂载
 import router from './router'
 import store from './store'
 
-// 把模块挂载到Vue原型上，在页面组件中就可以使用this.$http进行访问了
-import http from '@/utils/api'
+// 把所有接口方法，都放在$http对象上
+import http from './utils/api'
 Vue.prototype.$http = http
 
 Vue.config.productionTip = false
