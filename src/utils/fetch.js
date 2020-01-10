@@ -3,7 +3,7 @@ import { Message } from 'element-ui'
 
 // 测试:http://localhost:9090
 // 上线:http://baidu.com
-var baseURL = 'http://localhost:80'
+var baseURL = 'http://127.0.0.1'
 // var baseURL = 'http://10.36.136.170:9999'
 
 // 这是axios实例
