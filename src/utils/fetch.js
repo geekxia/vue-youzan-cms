@@ -5,7 +5,7 @@ import { Message } from 'element-ui'
 // 上线:http://baidu.com
 // var baseURL = 'http://127.0.0.1'
 // var baseURL = 'http://10.36.136.170:9999'
-var baseURL = 'http://localhost:8000'
+var baseURL = 'http://127.0.0.1:8000'
 
 // 这是axios实例
 const fetch = axios.create({
