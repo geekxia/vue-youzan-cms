@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d20f91a"],{b3d7:function(n,e,t){"use strict";t.r(e);var a=function(){var n=this,e=n.$createElement,t=n._self._c||e;return t("div",[n._v(" 首页 ")])},c=[],u={},r=u,s=t("5511"),i=Object(s["a"])(r,a,c,!1,null,"49a986b2",null);e["default"]=i.exports}}]);
+//# sourceMappingURL=chunk-2d20f91a.5f3d2ce9.js.map

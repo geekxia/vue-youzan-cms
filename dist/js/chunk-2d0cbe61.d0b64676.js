@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0cbe61"],{"4c40":function(e,n,t){"use strict";t.r(n);var c=function(){var e=this,n=e.$createElement;e._self._c;return e._m(0)},r=[function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div",[t("h1",[e._v("店铺导航")])])}],u={},a=u,s=t("5511"),i=Object(s["a"])(a,c,r,!1,null,"6c94ffa8",null);n["default"]=i.exports}}]);
+//# sourceMappingURL=chunk-2d0cbe61.d0b64676.js.map
